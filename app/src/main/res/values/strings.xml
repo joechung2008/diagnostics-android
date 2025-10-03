@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Diagnostics</string>
+    <string name="extension_detail_title">Extension Detail</string>
+    <string name="extension_name_label">Extension Name</string>
+    <string name="extension_error_label">Extension Error</string>
+    <string name="config_label">Config</string>
+    <string name="stage_definition_label">Stage Definition</string>
+    <string name="error_message_label">Error Message</string>
+    <string name="error_time_label">Error Time</string>
+    <string name="extension_error_title">Extension Error</string>
+
+    <!-- Environment menu titles -->
+    <string name="menu_env_public">Public Cloud</string>
+    <string name="menu_env_fairfax">Fairfax</string>
+    <string name="menu_env_mooncake">Mooncake</string>
+</resources>

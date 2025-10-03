@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_env_public"
+        android:title="@string/menu_env_public" />
+    <item
+        android:id="@+id/menu_env_fairfax"
+        android:title="@string/menu_env_fairfax" />
+    <item
+        android:id="@+id/menu_env_mooncake"
+        android:title="@string/menu_env_mooncake" />
+</menu>
