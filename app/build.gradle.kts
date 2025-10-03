@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.github.joechung2008.diagnostics_android"
-        minSdk = 36
+        minSdk = 35
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
