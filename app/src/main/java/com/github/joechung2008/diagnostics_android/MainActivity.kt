@@ -55,9 +55,9 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.addOnBackStackChangedListener {
             val inDetailView = supportFragmentManager.backStackEntryCount > 0
-            supportActionBar?.apply {
-                title = if (inDetailView) "Extension Detail" else getString(R.string.app_name)
-                setDisplayHomeAsUpEnabled(inDetailView)
+            supportActionBar?.setDisplayHomeAsUpEnabled(inDetailView)
+            if (!inDetailView) {
+                supportActionBar?.title = getString(R.string.app_name)
             }
             tabLayout.visibility = if (inDetailView) View.GONE else View.VISIBLE
             viewPager.visibility = if (inDetailView) View.GONE else View.VISIBLE

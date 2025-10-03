@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
@@ -58,17 +59,18 @@ class ExtensionDetailFragment : Fragment() {
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        val extensionNameText = view.findViewById<TextView>(R.id.extension_name_text)
         val errorContainer = view.findViewById<LinearLayout>(R.id.error_container)
         val errorMessageText = view.findViewById<TextView>(R.id.error_message_text)
         val errorTimeText = view.findViewById<TextView>(R.id.error_time_text)
         val tabLayout = view.findViewById<TabLayout>(R.id.extension_detail_tab_layout)
         val viewPager = view.findViewById<ViewPager2>(R.id.extension_detail_view_pager)
 
+        val actionBar = (activity as? AppCompatActivity)?.supportActionBar
+
         when (val ext = extension) {
             is ExtensionInfo -> {
+                actionBar?.title = ext.extensionName
                 errorContainer.isVisible = false
-                extensionNameText.text = ext.extensionName
 
                 val adapter = ExtensionDetailPagerAdapter(this)
                 ext.config?.let {
@@ -87,7 +89,7 @@ class ExtensionDetailFragment : Fragment() {
                 tabLayout.isVisible = adapter.itemCount > 1
             }
             is ExtensionError -> {
-                extensionNameText.isVisible = false
+                actionBar?.title = getString(R.string.extension_error_title)
                 tabLayout.isVisible = false
                 viewPager.isVisible = false
                 errorContainer.isVisible = true
