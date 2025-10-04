@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.github.joechung2008.diagnostics_android.data.DiagnosticsApi
 import com.github.joechung2008.diagnostics_android.data.DiagnosticsRepository
 import com.github.joechung2008.diagnostics_android.model.Environment
 import com.github.joechung2008.diagnostics_android.ui.MainViewModel
@@ -21,7 +22,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels {
-        MainViewModel.Factory(DiagnosticsRepository())
+        MainViewModel.Factory(DiagnosticsRepository(DiagnosticsApi.service))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
