@@ -38,9 +38,6 @@ android {
 
 kotlin {
     jvmToolchain(17)
-    compilerOptions {
-        optIn.add("kotlinx.serialization.InternalSerializationApi")
-    }
 }
 
 dependencies {

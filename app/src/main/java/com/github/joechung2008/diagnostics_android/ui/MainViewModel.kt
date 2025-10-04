@@ -4,14 +4,14 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.github.joechung2008.diagnostics_android.data.DiagnosticsRepository
+import com.github.joechung2008.diagnostics_android.data.IDiagnosticsRepository
 import com.github.joechung2008.diagnostics_android.model.Diagnostics
 import com.github.joechung2008.diagnostics_android.model.Environment
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val repository: DiagnosticsRepository) : ViewModel() {
+class MainViewModel(private val repository: IDiagnosticsRepository) : ViewModel() {
 
     private val _diagnostics = MutableStateFlow<Diagnostics?>(null)
     val diagnostics: StateFlow<Diagnostics?> = _diagnostics
@@ -39,7 +39,7 @@ class MainViewModel(private val repository: DiagnosticsRepository) : ViewModel()
         }
     }
 
-    class Factory(private val repository: DiagnosticsRepository) : ViewModelProvider.Factory {
+    class Factory(private val repository: IDiagnosticsRepository) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
