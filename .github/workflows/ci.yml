@@ -38,15 +38,9 @@ jobs:
       matrix:
         include:
           - api-level: 35
-            profile: "pixel_9_pro"
+            profile: "pixel_7_pro"
           - api-level: 36
-            profile: "pixel_9_pro"
-          - api-level: 35
-            profile: "pixel_8a"
-          - api-level: 36
-            profile: "pixel_8a"
-          - api-level: 35
-            profile: "pixel_tablet"
+            profile: "pixel_7_pro"
 
     steps:
       - name: Checkout code
@@ -63,7 +57,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run instrumentation tests
-        uses: ReactiveCircus/android-emulator-runner@v2
+        uses: ReactiveCircus/android-emulator-runner@v2.34.0
         with:
           api-level: ${{ matrix.api-level }}
           arch: x86_64
